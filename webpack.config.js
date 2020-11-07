@@ -61,30 +61,59 @@ module.exports = {
             template: path.resolve(__dirname, 'src/index.html')
         }),
         new CleanWebpackPlugin(),
-        // new CopyWebpackPlugin({
-        //     patterns: [
-        //           { from: 'src', to: 'build' },
-        //     ],
-        // }),
+        new CopyWebpackPlugin({
+            patterns: [
+                  { from: 'src/assets/styles/images', to: 'assets/styles/images' },
+            ],
+        }),
         new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css',
-        })
+            filename: 'assets/styles/[name].[contenthash].css',
+        }),
     ],
 
     module: {
         rules: [
-            {
-                test: /\.css$/i,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'] 
-            },
+            // {
+            //     test: /\.css$/i,
+            //     use: [MiniCssExtractPlugin.loader, 'css-loader'],
+                
+            // },
             {
                 test: /\.s[ac]ss$/i,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'] 
+                use: [
+                    MiniCssExtractPlugin.loader, 
+                    { 
+                        loader: 'css-loader',
+                        options: {
+                          url: false
+                        }
+                    },
+                    'sass-loader'
+                ] 
             },
             {
-                test: /\.(png|jpe?g|gif|svg)$/i,
-                use: [{ loader: 'file-loader', }],
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                      name: '[name].[ext]',
+                      outputPath: 'assets/fonts/'
+                    }
+                  }
+                ]
             },
+            // {
+            //     test: /\.(png|jpe?g|gif|svg)$/i,
+            //     use: [{ 
+            //         loader: 'file-loader', 
+            //         options: {
+            //             name: '[name].[ext]',
+            //             context: 'images',
+            //             outputPath: 'images'
+            //         }
+            //     }],
+            // },
             {
                 test: /\.m?js$/,
                 exclude: /node_modules/,

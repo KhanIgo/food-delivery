@@ -1,2 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 16px;
+    //background-color: wheat;
+}
+@import 'mixins';
+@import 'fonts';
+@import 'vars';
+@import 'grid';
+@import 'tags';
+@import 'ui';
+@import 'components/components';
 
-@import 'components';
+
+
