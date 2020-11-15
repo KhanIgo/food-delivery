@@ -26,7 +26,6 @@ class FoodLoop extends React.Component{
             price = this.props.product.variations[0].price;
         }
         
-        
         this.state = {
             ...this.props.product,
             price, doughIndex, sizeIndex, image, images, qty, minQty, maxQty

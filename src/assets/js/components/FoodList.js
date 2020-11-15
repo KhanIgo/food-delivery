@@ -13,7 +13,6 @@ class FoodList extends React.Component{
                             <FoodLoop product={prod} id={prod.id} key={prod.id} />
                         )
                     }) }
-                    <h2>FoodList</h2>
                 </div>
             </div>
         )
