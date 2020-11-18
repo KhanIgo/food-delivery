@@ -19,5 +19,5 @@ class FoodList extends React.Component{
     }
 }
 
-
 export default FoodList
+

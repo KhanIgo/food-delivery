@@ -77,15 +77,11 @@ class FoodLoop extends React.Component{
 
 
     toCartHandler(id){
-        
         this.setState({ username: 'rstacruz' })
     }
-    componentWillMount(){
-        
-    }
-    componentDidMount(){
-        
-    }
+
+
+    
 
     render(){
         return(
@@ -170,6 +166,10 @@ class FoodLoop extends React.Component{
             </div>
         );
     }
+
+
+    componentWillMount(){}
+    componentDidMount(){}
 }
 
 // FoodLoop.propTypes = {
